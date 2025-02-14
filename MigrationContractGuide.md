@@ -1,30 +1,33 @@
 ![image](https://github.com/TronixFoundation/documentation/assets/169593036/f8b7fa90-56c1-42f1-91be-a863f82b36ed)
 
-We started migrating Tron tokens from the old ERC20 to the new TRX20 standard, a native token for the Tron Mainnet which can be used on any exchange which have Tron listed. Tron holders can swap their old ERC20 TRX for the new TRX20 by using a migration contract. To avoid confusion, TRX20 and TRC20 are the same standards.
+We have started migrating Tron tokens from the old ERC20 standard to the new TRX20 (also known as TRC20) standard. New Tron tokens serve an important role as native tokens used on the Tron Mainnet. Tron holders should swap their old legacy ERC20 TRX for the new TRC20 using a migration contract.
 
 > This is a 1:1 swap, which means that anyone who holds the ERC20 token will receive the same amount of TRX20 tokens. There is no reduction in the token supply.
+
 ## How to migrate TRX tokens from the Ethereum tokens to the Tron Mainnet?
 
-For any remaining TRX ERC20 tokens which were not migrated yet, we decided to conduct the migration by directly using a migration smart contract, instead of using a migration user interface that is not supported anymore. This makes the migration process for the remaining old Tron ERC20 tokens holders fast and simple. We suggest that every holder of old ERC20 tokens perform the migration as soon as possible to avoid possible.
+For any remaining TRX ERC20 tokens that have not yet been migrated, we have decided to conduct the migration directly using **migration smart contract**, rather than using a migration user interface that is no longer supported. This makes the migration process for the remaining old Tron ERC20 token holders **simple**.
 
-Using a migration smart contract, which is created only for migration purposes, allows you to migrate your TRX tokens without having to connect to any external platforms. Migration smart contract address is open-source which means code is publicly available and can be checked by anyone on the Blockchain.
+The migration smart contract, created solely for migration purposes, allows you to migrate your TRX tokens without connecting to any external platforms. The migration smart contract address is **open-source**, meaning the code can be checked by anyone.
 
-Using a migration contract requires users to pay the gas fee on Ethereum Blockchain. This means that every user who wants to perform migration needs to have ETH on their wallet. Migration is a similar process to any other transaction on the Ethereum Blockchain and the gas fee is the same as any other transaction. We recommend choosing the average (normal) gas fee to avoid any inconvenience.
+Using the migration contract requires users to **pay the gas fee** on the Ethereum Blockchain. This means every user who wants to perform migration needs to have ETH in their wallet. The migration process is similar to any other transaction on the Ethereum Blockchain, and the gas fee is the same as any other transaction. We recommend choosing the average (normal) gas fee to avoid any inconvenience.
 
-The migration can be conducted with the wallet which you usually use to access the TRON tokens. The most commonly used wallets for storing old ERC20 TRX tokens were MyEtherWallet, Ledger, MetaMask, Klever, Exodus, Bitpie, Trust Wallet, Atomic Wallet, Math Wallet, Cobo, TokenPocket, Vision, Bitkeep, Guarda, Moonstake. All these wallets support the migration process.
+## Steps to Start Migration Process
 
-The migration procedure is the same for any other non-custodial wallets which you use to store ERC20 tokens, like old ERC20 TRX. In some rare cases, your wallet could not support the migration, because some wallets may not support the new Tron Mainnet. In this case, you will receive your ERC20 TRX back from the migration contract. This is how you will know that your wallet is not supporting migration. If the wallet support TRC20 tokens then it supports the migration.
+**1. Access Your Wallet:** Check your TRX balance in the list of Ethereum tokens.
 
-To perform the migration, first, access your wallet to see your Tron balance on the list of Ethereum tokens. Now send your old ERC20 TRX tokens to the migration smart contract address which is `0x49aD4CeD7F8B1aF642B3F6129ead6D4339039050`. The Migration smart contract address begins with the `0x49` and ends with the `9050`, please check that it is correct. 
+**2. Send Tokens:** Send your old ERC20 TRX tokens to the migration smart contract address `0xF7D15b719E1c6020cbd37E8f8Be62B88535b09c6`. The migration smart contract address begins with `0xF7` and ends with `09c6`. The case of letters does not matter (lower case or upper case).
+Choose to send the **entire balance** of TRX tokens. The migration contract will wait for the **full balance** to arrive before initiating the migration process to optimize due to high Ethereum gas fees, partially covered by the Tron Foundation.
 
-For the amount choose to send the entire TRX balance, otherwise, the migration process will not start. The contract is waiting for the whole balance to be received before performing the migration to save on high ETH fees which are covered by Tron Foundation. Users just need to pay a regular transaction fee to send the tokens to the migration contract address.
+**3. Confirmation:** After the transaction is confirmed and broadcasted to the blockchain, the migration process will start, and your wallet will be credited with new TRX tokens. Depending on network usage, it may take 5–30 minutes to process the migration.
 
-After the transaction is confirmed and broadcasted to Blockchain, the migration process will start and your wallet will be credited with new TRX tokens. It may take 10–30 minutes to process the migration if network usage is high.
+## Post-Migration
 
-Your wallet will automatically recognize the new Tron Mainnet and TRX will be credited to your wallet. The public address of your Tron Mainnet wallet will look different from your Ethereum address where ERC20 TRX was stored. This is because Tron Mainnet’s public address is just a derivation of the Ethereum public address, which uses a different hash algorithm for addresses. The migration contract will still know where to send new migrated tokens. Your new Mainnet TRC20 TRX tokens will be tied to the same private key and seed.
+Your wallet will **automatically recognize** the new Tron Mainnet, and TRX will be credited to your wallet once the migration is complete. The public address of your Tron Mainnet wallet will look different from your Ethereum address where ERC20 TRX was stored, due to different hash algorithms used by Tron Mainnet. However, the migration contract will still know where to send the new migrated tokens. Your new Mainnet TRC20 TRX tokens will be tied to the same private key and seed.
 
-Now, when migration is performed, you have new TRX tokens in your wallet. Tokens can be sold on any exchange which listed Tron. Nowadays, all exchanges support the new Tron Mainnet instead of the old one.
+Once the migration is complete, you will have new TRX tokens in your wallet. These tokens can be sold on any exchange that lists Tron, as all exchanges now support the new Tron Mainnet.
 
-For users who have Ledger wallets, it will be required to install the Tron app in the Ledger manager to be able to view the new TRX tokens after the migration. If you already have a Tron app when performing the migration, the new TRX will just show up in your TRX balance.
+Congratulations, you have successfully performed the migration.
 
-**Congratulations, you have successfully perform the migration.**
+![image](https://github.com/user-attachments/assets/37c85aaf-1cd3-4d04-8a9f-9abb6aa6b5cb)
+
