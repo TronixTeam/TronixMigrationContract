@@ -1,0 +1,68 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+interface IERC20 {
+    function balanceOf(address account) external view returns (uint256);
+    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);
+    function transfer(address recipient, uint256 amount) external returns (bool);
+}
+
+contract TRXMigration {
+    address public owner;
+    IERC20 public oldTRX;
+    IERC20 public newTRX;
+    bool public migrationActive = true;
+
+    mapping(address => bool) public migrated;
+
+    event Migrated(address indexed user, uint256 amount);
+    event MigrationStatusChanged(bool active);
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "Not authorized");
+        _;
+    }
+
+    modifier isMigrationActive() {
+        require(migrationActive, "Migration has ended");
+        _;
+    }
+
+    constructor(address _oldTRX, address _newTRX) {
+        owner = msg.sender;
+        oldTRX = IERC20(_oldTRX);
+        newTRX = IERC20(_newTRX);
+    }
+
+    function migrateTokens(uint256 amount) external isMigrationActive {
+        require(!migrated[msg.sender], "Already migrated");
+        require(amount > 0, "Invalid amount");
+
+        // Transfer old TRX from user to this contract
+        require(oldTRX.transferFrom(msg.sender, address(this), amount), "Old TRX transfer failed");
+
+        // Send new TRX to user
+        require(newTRX.transfer(msg.sender, amount), "New TRX transfer failed");
+
+        migrated[msg.sender] = true;
+        emit Migrated(msg.sender, amount);
+    }
+
+    function stopMigration() external onlyOwner {
+        migrationActive = false;
+        emit MigrationStatusChanged(false);
+    }
+
+    function resumeMigration() external onlyOwner {
+        migrationActive = true;
+        emit MigrationStatusChanged(true);
+    }
+
+    function withdrawOldTRX(address recipient, uint256 amount) external onlyOwner {
+        require(oldTRX.transfer(recipient, amount), "Withdrawal failed");
+    }
+
+    function withdrawNewTRX(address recipient, uint256 amount) external onlyOwner {
+        require(newTRX.transfer(recipient, amount), "Withdrawal failed");
+    }
+}
