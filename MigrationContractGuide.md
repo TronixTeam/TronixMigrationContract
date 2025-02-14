@@ -25,6 +25,6 @@ Your wallet will automatically recognize the new Tron Mainnet and TRX will be cr
 
 Now, when migration is performed, you have new TRX tokens in your wallet. Tokens can be sold on any exchange which listed Tron. Nowadays, all exchanges support the new Tron Mainnet instead of the old one.
 
-For the, it will be required to install the Tron app in the Ledger manager to be able to view the new TRX tokens after the migration. If you already have a Tron app when performing the migration, the new TRX will just show up in your TRX balance.
+For users who have Ledger wallets, it will be required to install the Tron app in the Ledger manager to be able to view the new TRX tokens after the migration. If you already have a Tron app when performing the migration, the new TRX will just show up in your TRX balance.
 
 **Congratulations, you have successfully perform the migration.**
